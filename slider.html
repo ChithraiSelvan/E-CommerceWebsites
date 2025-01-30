@@ -12,24 +12,34 @@
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
     <!-- End Google Tag Manager -->
     
-    <!-- Facebook Pixel Code - HEAD -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;
-        n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'YOUR_PIXEL_ID'); 
-        fbq('track', 'PageView');
+    <!-- AdRoll Pixel Code - HEAD -->
+    <script type="text/javascript">
+        adroll_adv_id = "SJMSJZYYMZGQHLTBSSQDZ5";
+        adroll_pix_id = "GKTTI4KFMNAP3JDN6UTAQX";
+        adroll_version = "2.0";
+        (function(w, d, e, o, a) {
+            w.__adroll_loaded = true;
+            w.adroll = w.adroll || [];
+            w.adroll.f = ['setProperties', 'identify', 'track', 'identify_email', 'get_cookie'];
+            var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js";
+            for (a = 0; a < w.adroll.f.length; a++) {
+                w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) {
+                    return function() { w.adroll.push([n, arguments]) };
+                })(w.adroll.f[a]);
+            }
+            e = d.createElement('script');
+            o = d.getElementsByTagName('script')[0];
+            e.async = 1;
+            e.src = roundtripUrl;
+            o.parentNode.insertBefore(e, o);
+        })(window, document);
+        adroll.track("pageview");
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+        src="https://s.adroll.com/i/roundtrip.jpg?adroll_adv_id=SJMSJZYYMZGQHLTBSSQDZ5&adroll_pix_id=GKTTI4KFMNAP3JDN6UTAQX&advertising=pageview"/>
     </noscript>
-    <!-- End Facebook Pixel Code -->
+    <!-- End AdRoll Pixel Code -->
     
     <!-- EXTERNAL LINKS -->
     <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -47,19 +57,19 @@
             padding-top: 100px;
             box-sizing: border-box;
         }
-        #containerSlider img {
+        .slidingImage img {
             width: 100%;
-            height: 140%;
+            height: auto;
             text-align: center;
             align-content: center;
         }
         @media(max-width: 732px) {
-            #containerSlider img {
+            .slidingImage img {
                 height: 12em;
             }
         }
         @media(max-width: 500px) {
-            #containerSlider img {
+            .slidingImage img {
                 height: 10em;
             }
         }
@@ -72,10 +82,10 @@
 
     <section>
         <div id="containerSlider">
-            <div id="slidingImage"> <img src="img/img1.png" alt="image1"> </div>
-            <div id="slidingImage"> <img src="img/img2.png" alt="image2"> </div>
-            <div id="slidingImage"> <img src="img/img3.png" alt="image3"> </div>
-            <div id="slidingImage"> <img src="img/img4.png" alt="image4"> </div>
+            <div class="slidingImage"> <img src="img/img1.png" alt="image1"> </div>
+            <div class="slidingImage"> <img src="img/img2.png" alt="image2"> </div>
+            <div class="slidingImage"> <img src="img/img3.png" alt="image3"> </div>
+            <div class="slidingImage"> <img src="img/img4.png" alt="image4"> </div>
         </div>
     </section>
 
@@ -89,7 +99,7 @@
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 autoplay: true,
-                autoplaySpeed: 2000,
+                autoplaySpeed: 3000, // Increased to 3 seconds
             });
         });
     </script>
