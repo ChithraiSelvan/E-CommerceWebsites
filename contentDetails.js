@@ -72,6 +72,22 @@ function dynamicContentDetails(ob) {
     buttonTag.textContent = 'Cart';
     buttonTag.onclick = function () {
         showPopup(ob);
+    
+     // AdRoll EventMatch Tracking for 'Cart' Button Click
+     try {
+        __adroll.record_user({
+            "adroll_segments": "20815766", // Replace with your actual segment ID
+            "adroll_email": "",  // Optional: Capture user email if available
+            "order_id": ob.id,
+            "price": ob.price,
+            "currency": "INR",
+            "product_name": ob.name,
+            "product_category": ob.category || "",
+            "event": "cart_add"
+        });
+    } catch (err) {
+        console.error("AdRoll EventMatch Error:", err);
+    }
     };
     buttonDiv.appendChild(buttonTag);
 
@@ -116,12 +132,6 @@ function showPopup(ob) {
     buyNowButton.textContent = 'Buy Now';
     buyNowButton.onclick = function () {
         window.location.href = 'orderPlaced.html';
-
-        <script type="text/javascript">
-            try {
-                __adroll.record_user({ "adroll_segments": "20815766" })
-            } catch(err) { }
-        </script>
     };
 
     let cancelButton = document.createElement('button');
