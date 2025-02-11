@@ -58,7 +58,7 @@ function dynamicContentDetails(ob) {
         let imgTagProductPreviewDiv = document.createElement('img');
         imgTagProductPreviewDiv.classList.add('preview-img');
         imgTagProductPreviewDiv.src = ob.photos[i];
-        imgTagProductPreviewDiv.onclick = function(event) {
+        imgTagProductPreviewDiv.onclick = function (event) {
             imgTag.src = ob.photos[i];
             document.getElementById("imgDetails").src = this.src;
         };
@@ -85,7 +85,7 @@ function dynamicContentDetails(ob) {
     detailsDiv.appendChild(para);
     productDetailsDiv.appendChild(productPreviewDiv);
     productDetailsDiv.appendChild(buttonDiv);
-    
+
     pushToDataLayer(ob);
 }
 
@@ -116,6 +116,12 @@ function showPopup(ob) {
     buyNowButton.textContent = 'Buy Now';
     buyNowButton.onclick = function () {
         window.location.href = 'orderPlaced.html';
+
+        <script type="text/javascript">
+            try {
+                __adroll.record_user({ "adroll_segments": "20815766" })
+            } catch(err) { }
+        </script>
     };
 
     let cancelButton = document.createElement('button');
